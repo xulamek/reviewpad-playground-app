@@ -1,0 +1,9 @@
+api-version: reviewpad.com/v3.x
+
+workflows:
+  - name: rebase
+    always-run: true
+    if:
+      - $toBool($selectFromContext("$.rebaseable"))
+    then:
+      - $rebase()
